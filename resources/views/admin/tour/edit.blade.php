@@ -11,6 +11,10 @@
         @csrf
         @method('PUT')
         <div class="input-group input-group-outline my-3">
+          <label class="form-label">Mã tour</label> <br>
+          <input type="text" class="form-control" name="tour_id" value="{{$tour->tour_id}}">
+        </div>
+        <div class="input-group input-group-outline my-3">
           <label class="form-label">Tên tour</label> <br>
           <input type="text" class="form-control" name="tour_name" value="{{$tour->tour_name}}">
         </div>
@@ -36,6 +40,14 @@
             <input type="file" name="tour_image">
           </div>
           <div class="input-group input-group-outline my-3">
+            <label class="form-label">Các điểm đến</label>
+            <input type="text" class="form-control" name="tour_place" value="{{$tour->tour_place}}">
+          </div>
+          <div class="input-group input-group-outline my-3">
+            <label class="form-label">Phương tiện</label>
+            <input type="text" class="form-control" name="tour_vehicle" value="{{$tour->tour_vehicle}}">
+          </div>
+          <div class="input-group input-group-outline my-3">
             <label class="form-label">Điểm khởi hành</label>
             <input type="text" class="form-control" name="tour_locationStart" value="{{$tour->tour_locationStart}}">
           </div>
@@ -59,6 +71,10 @@
             <p class="form-label">Mô tả</p>
             <textarea type="text" class="form-control mt-5" name="tour_description"style="height: 150px;">{{$tour->tour_description}}</textarea>
           </div>
+          <div class="input-group input-group-outline my-3" style="display: inline">
+            <p>Hành trình</p>
+            <textarea type="text" class="form-control mt-5" name="tour_trip"style="width: 100%;" id="tour_trip">{{$tour->tour_trip}}</textarea>
+          </div>
           <div>
             <p class="form-label">Hướng dẫn viên</p>
             <select name="tourGuide_id" class="form-control border">
@@ -73,4 +89,13 @@
         </div>
     </form>
 </div>
+@endsection
+@section('ckeditor')
+    <script>
+        ClassicEditor
+            .create(document.getElementById('tour_trip'))
+            .catch(error =>{
+                console.error(error);
+            });
+    </script>
 @endsection

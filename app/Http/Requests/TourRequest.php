@@ -25,11 +25,15 @@ class TourRequest extends FormRequest
     {
         return [
             //
+            'tour_id' => 'required',
             'tour_name' => 'required',
             'tour_price' => 'required',
             'tour_discount' => 'required',
             'tour_image' => 'required|image|max:2048',
+            'tour_place' => 'required',
+            'tour_vehicle' => 'required',
             'tour_description' => 'required',
+            'tour_trip' => 'required',
             'tour_locationStart' => 'required',
             'tour_locationEnd' => 'required',
             'tour_quantytiDate' => 'required',
@@ -37,6 +41,28 @@ class TourRequest extends FormRequest
             'tour_dateEnd' => 'required',
             'category_id' => 'required',
             'tourGuide_id' => 'required'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'tour_id' => 'tour_id required',
+            'tour_name' => 'tour_name required',
+            'tour_price' => 'tour_price required',
+            'tour_discount' => 'tour_discount required',
+            'tour_image' => 'tour_image required',
+            'tour_place' => 'tour_place required',
+            'tour_vehicle' => 'tour_vehicle required',
+            'tour_description' => 'tour_description required',
+            'tour_trip' => 'tour_trip required',
+            'tour_locationStart' => 'tour_locationStart required',
+            'tour_locationEnd' => 'tour_locationEnd required',
+            'tour_quantytiDate' => 'tour_quantytiDate required',
+            'tour_dateStart' => 'tour_dateStart required',
+            'tour_dateEnd' => 'tour_dateEnd required',
+            'category_id' => 'category_id required',
+            'tourGuide_id' => 'tourGuide_id required'
         ];
     }
 }

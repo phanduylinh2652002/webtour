@@ -23,6 +23,6 @@ class RegisterController extends Controller
         }catch(\Throwable $th){
             dd($th);
         }
-        return redirect()->route('homePage');
+        return redirect('/');
     }   
 }

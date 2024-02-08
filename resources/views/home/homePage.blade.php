@@ -10,103 +10,20 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <form class="form">
+                            <form class="form" action="{{route('search')}}" method="get" enctype="multipart/form">
+                                @csrf
                                 <div class="row mb-2">
-                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
-                                        <!-- <input type="text" class="form-control" name="daterange"> -->
-                                        <select name="" id="province" class="form-control custom-select">
-                                            <option value="">Điểm xuất phát</option>
-                                            <option value="All">Tất cả</option>
-                                            <option value="HaNoi">Hà Nội</option>
-                                            <option value="DaNang">Đà Nẵng</option>
-                                            <option value="HoChiMinh">Hồ Chí Minh</option>
-                                        </select>
-                                    </div>
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-6">
                                         <!-- <input type="text" class="form-control" name="daterange"> -->
-                                        <input type="text" id="search-tour"
+                                        <input type="text" id="search-tour" name="keyTour"
                                             class="form-control form-control-plaintext"
                                             placeholder="Tìm tour du lịch..." style="padding-left: 10px;">
-                                    </div>
-                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-2 wrapper-filter">
-                                        <a href="#demo" data-toggle="collapse" class="filter"
-                                            style="display: block;">
-                                            <i class="fa-solid fa-sliders"></i>
-                                        </a>
-                                        <div class="wrapper-category-list collapse container-list" id="demo">
-                                            <table class="table table-list-category table-dark table-hover">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="1"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Vịnh Hạ Long</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i>Du lịch Hà Nội</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Hải Phòng</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="clickable" data-value="2"><i
-                                                                    style="padding-right: 10px;"
-                                                                    class="fa-solid fa-mountain-sun"></i> Du lịch Phú Quốc</span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
                                         <input type="submit" class="btn btn-primary btn-block"
                                             value="Tìm kiếm tour">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <label class="control control--checkbox mt-3">
-                                            <span class="caption">Lưu tìm kiếm</span>
-                                            <input type="checkbox" checked="checked" />
-                                            <div class="control__indicator"></div>
-                                        </label>
                                     </div>
                                 </div>
                             </form>
@@ -286,72 +203,22 @@
             <div class="col-lg-7">
                 <h2 class="section-title text-center mb-3"
                     style="font-size: 45px !important; font-weight: bold;" data-aos="fade-left"
-                    data-aos-duration="1200">Điểm đến yêu thích</h2>
+                    data-aos-duration="1200">Điểm đến yêu thích trong nước</h2>
             </div>
         </div>
 
         <div class="owl-carousel owl-3-slider">
-
+            @foreach ($tourDomestic as $td)
             <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                <a class="media-thumb" href="danhmuc.html">
+                <a class="media-thumb" href="{{url('detailTour', $td->tour_id)}}">
                     <div class="media-text">
-                    <h3>Du lịch Phú Quốc</h3>
-                        <span class="location">Phú Quốc</span>
+                    <h3>Du lịch {{$td->tour_locationEnd}}</h3>
+                        <span class="location">{{$td->tour_locationEnd}}</span>
                     </div>
-                    <img src="{{asset('app/images/hero-slider-1.jpg')}}" alt="Image" class="img-fluid">
+                    <img src="{{URL::to('/')}}/images/{{$td->tour_image}}" alt="Image" class="img-fluid" style="height: 568px;">
                 </a>
             </div>
-
-            <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                <a class="media-thumb" href="danhmuc.html">
-                    <div class="media-text">
-                        <h3>Du lịch Hà Nội</h3>
-                        <span class="location">Hà Nội</span>
-                    </div>
-                    <img src="{{asset('app/images/hero-slider-2.jpg')}}" alt="Image" class="img-fluid">
-                </a>
-            </div>
-
-            <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                <a class="media-thumb" href="danhmuc.html">
-                    <div class="media-text">
-                        <h3>Du lich Hội An</h3>
-                        <span class="location">Quảng Nam</span>
-                    </div>
-                    <img src="{{asset('app/images/hero-slider-3.jpg')}}" alt="Image" class="img-fluid">
-                </a>
-            </div>
-
-
-            <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                <a class="media-thumb" href="danhmuc.html">
-                    <div class="media-text">
-                        <h3>Du lịch Nha Trang</h3>
-                        <span class="location">Nha Trang</span>
-                    </div>
-                    <img src="{{asset('app/images/hero-slider-4.jpg')}}" alt="Image" class="img-fluid">
-                </a>
-            </div>
-
-            <div class="item" data-aos="fade-up" data-aos-duration="1000">
-                <a class="media-thumb" href="danhmuc.html">
-                    <div class="media-text">
-                        <h3>Du lịch Ninh Bình</h3>
-                        <span class="location">Ninh Bình</span>
-                    </div>
-                    <img src="{{asset('app/images/hero-slider-5.jpg')}}" alt="Image" class="img-fluid">
-                </a>
-            </div>
-
-            <div class="item" data-aos="fade-up" data-aos-duration="1200">
-                <a class="media-thumb" href="danhmuc.html">
-                    <div class="media-text">
-                        <h3>Du lịch Đà Nẵng</h3>
-                        <span class="location">Đà Nẵng</span>
-                    </div>
-                    <img src="{{asset('app/images/hero-slider-2.jpg')}}" alt="Image" class="img-fluid">
-                </a>
-            </div>
+            @endforeach
 
         </div>
 
@@ -370,88 +237,27 @@
         </div>
         <div class="row" data-aos="fade-right"
         data-aos-duration="1200">
+            @foreach($tours as $t)
+            @if($t->tour_discount > 0)
             <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                 <div class="media-1">
-                    <a href="#" class="d-block mb-3"><img src="{{asset('app/images/hero-slider-1.jpg')}}" alt="Image"
+                    <a href="{{url('detailTour', $t->tour_id)}}" class="d-block mb-3"><img src="{{URL::to('/')}}/images/{{$t->tour_image}}" alt="Image" style="height: 400px;"
                             class="img-fluid"></a>
                     <span class="d-flex align-items-center loc mb-2">
                         <span class="icon-room mr-3"></span>
-                        <span>Hà Nội</span>
+                        <span>{{$t->tour_locationEnd}}</span>
                     </span>
                     <div class="d-flex align-items-center">
                         <div>
-                            <h3><a href="#">Lăng Bác</a></h3>
-                            <div class="price ml-auto">
-                                <span>-20%</span>
-                            </div>
+                            <h3><a href="{{url('detailTour', $t->tour_id)}}">{{$t->tour_place}}</a></h3>
                         </div>
 
                     </div>
 
                 </div>
             </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <div class="media-1">
-                    <a href="#" class="d-block mb-3"><img src="{{asset('app/images/hero-slider-2.jpg')}}" alt="Image"
-                            class="img-fluid"></a>
-                    <span class="d-flex align-items-center loc mb-2">
-                        <span class="icon-room mr-3"></span>
-                        <span>Hà Nội</span>
-                    </span>
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h3><a href="#">Hồ Gươm</a></h3>
-                            <div class="price ml-auto">
-                                <span>-10%</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <div class="media-1">
-                    <a href="#" class="d-block mb-3"><img src="{{asset('app/images/hero-slider-3.jpg')}}" alt="Image"
-                            class="img-fluid"></a>
-                    <span class="d-flex align-items-center loc mb-2">
-                        <span class="icon-room mr-3"></span>
-                        <span>Quảng Nam</span>
-                    </span>
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h3><a href="#">Phố cổ Hội An</a></h3>
-                            <div class="price ml-auto">
-                                <span>-30%</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <div class="media-1">
-                    <a href="#" class="d-block mb-3"><img src="{{asset('app/images/hero-slider-4.jpg')}}" alt="Image"
-                            class="img-fluid"></a>
-
-                    <span class="d-flex align-items-center loc mb-2">
-                        <span class="icon-room mr-3"></span>
-                        <span>Kiên Giang</span>
-                    </span>
-
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h3><a href="#">Phú Quốc</a></h3>
-                            <div class="price ml-auto">
-                                <span>giảm 100k cho mỗi vé</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
@@ -559,7 +365,7 @@
                     <li>Sách hướng dẫn</li>
                 </ul>
 
-                <p data-aos="fade-up" data-aos-duration="1200"><a href="#" class="btn btn-primary">Bắt đầu</a></p>
+                <p data-aos="fade-up" data-aos-duration="1200"><a href="{{url('/')}}" class="btn btn-primary">Bắt đầu</a></p>
 
 
             </div>
@@ -575,7 +381,7 @@
             <div class="col-md-12">
                 <h2 class="mb-2 text-white">Liên lạc với chúng tôi ngay</h2>
                 <p class="mb-4 lead text-white text-white-opacity">Cho phép bạn khám phá những gì tốt nhất.</p>
-                <p class="mb-0"><a href="contact.html"
+                <p class="mb-0"><a href="{{url('/')}}"
                         class="btn btn-outline-white text-white btn-md font-weight-bold">Liên hệ</a></p>
             </div>
         </div>

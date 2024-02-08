@@ -25,8 +25,9 @@ class TourGuideRequest extends FormRequest
     {
         return [
             //
+            'tourGuide_id' => 'required',
             'tourGuide_name' => 'required',
-            'tourGuide_email' => 'required|email',
+            'tourGuide_email' => 'required',
             'tourGuide_phone' => 'required',
             'tourGuide_address' => 'required'
         ];

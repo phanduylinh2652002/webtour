@@ -5,7 +5,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="widget">
                         <h3 class="heading" style="font-size: 30px; font-weight: bold;">ThanhTungTour</h3>
-                        <p>Công ty được sự bảo hộ của nhà nước và được cấp phép kinh doanh online. ® ThanhTUngTour nay
+                        <p>Công ty được sự bảo hộ của nhà nước và được cấp phép kinh doanh online. ® ThanhTungTour nay
                             là
                             thương hiệu mới của Tour Cafe</p>
                     </div>

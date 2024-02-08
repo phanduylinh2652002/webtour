@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +13,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('homePage');
-
+//login
 Route::get('/login', 'Auth\LoginController@index');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/register', 'Auth\RegisterController@index');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout');
 
-
+Route::get('/privacyPolicy', function (){
+    return '<h1>Chính sách riêng tư</h1>';
+});
+Route::get('auth/facebook', function(){
+    return Socialite::driver('facebook')->redirect();
+});
+Route::get('auth/facebook/callback', function(){
+    return 'Callback Facebook';
+});
+//admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
     Route::resource('category', 'CategoryController');
     Route::resource('tour', 'TourController');
     Route::resource('tourguide', 'TourGuideController');
+    Route::resource('account', 'AccountController');
+    Route::resource('news', 'NewsController');
+    Route::get('bill', 'BillController@index');
+    Route::get('billdetail/{id}', 'BillController@detail');
 });
 
 Route::get('/', 'PageController@getInfo');
 
 //Xem chi tiết
-Route::get('/detailTour/{id}', 'PageController@getDetail');
+Route::get('/detailTour/{id_name}', 'PageController@getDetail');
+//Xem danh mục tour
+Route::get('/categoryTour/{id}', 'PageController@getCategory');
+//Dat tour
+Route::get('/bookTour/{id}', 'BookTourController@index');
+Route::post('/orderTour/{id}', 'BookTourController@orderTour')->name('orderTour');
+Route::get('/orderPage/{id}', 'BookTourController@showOrder')->name('orderPage');
+Route::get('/pay/{id}', 'BookTourController@pay')->name('pay');
+
+//Search
+Route::get('/search', 'PageController@search')->name('search');
+//Tour cua toi
+Route::get('/unpaid', 'PageController@unpaid');
+Route::get('/paid', 'PageController@paid');
+Route::get('/detailPaid/{id}', 'PageController@detailPaid');
+
+//Tin tuc
+Route::get('/newsPage', 'PageController@news');
+Route::get('/newsDetail/{id}', 'PageController@newsDetail');

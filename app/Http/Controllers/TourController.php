@@ -41,17 +41,21 @@ class TourController extends Controller
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         Tour::query()->create([
+            'tour_id' => $request->tour_id,
             'tour_name' => $request->tour_name,
             'category_id' => $request->category_id,
             'tour_price' => $request->tour_price,
             'tour_discount' => $request->tour_discount,
             'tour_image' => $new_name,
+            'tour_place' => $request->tour_place,
+            'tour_vehicle' => $request->tour_vehicle,
             'tour_locationStart' => $request->tour_locationStart,
             'tour_locationEnd' => $request->tour_locationEnd,
             'tour_quantytiDate' => $request->tour_quantytiDate,
             'tour_dateStart' => $request->tour_dateStart,
             'tour_dateEnd' => $request->tour_dateEnd,
             'tour_description' => $request->tour_description,
+            'tour_trip' => $request->tour_trip,
             'tourGuide_id' => $request->tourGuide_id,
             'tour_hot' => $request->tour_hot
         ]);
@@ -75,14 +79,18 @@ class TourController extends Controller
             'tour_price' => $request->tour_price,
             'tour_discount' => $request->tour_discount,
             'tour_image' => $image_name,
+            'tour_place' => $request->tour_place,
+            'tour_vehicle' => $request->tour_vehicle,
             'tour_locationStart' => $request->tour_locationStart,
             'tour_locationEnd' => $request->tour_locationEnd,
             'tour_quantytiDate' => $request->tour_quantytiDate,
             'tour_dateStart' => $request->tour_dateStart,
             'tour_dateEnd' => $request->tour_dateEnd,
             'tour_description' => $request->tour_description,
+            'tour_trip' => $request->tour_trip,
             'tourGuide_id' => $request->tourGuide_id
         );
+        
         $tour->update($form_data);
         return redirect()->route('tour.index');
     }

@@ -15,10 +15,10 @@ class LoginController extends Controller
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){
-            if(Auth::user()->type === 'admin'){
+            if(Auth::user()->type === 'admin' || Auth::user()->type === 'employee'){
                 return redirect()->route('dashboard');
             }
-            return redirect()->route('homePage');
+            return redirect('/');
         }
         return redirect()->back()->with('error', 'Sai tài khoản hoặc mật khẩu');
     }

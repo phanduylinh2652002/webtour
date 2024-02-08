@@ -41,6 +41,14 @@
                         <span>{{$tourGuide->tourGuide_name}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
+                        <h4>Các điểm đến</h4>
+                        <span>{{$tours->tour_place}}</span>
+                    </div>
+                    <div class="info_group mt-2" style="margin-left: 15px">
+                        <h4>Phương tiện</h4>
+                        <span>{{$tours->tour_vehicle}}</span>
+                    </div>
+                    <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Điểm khởi hành</h4>
                         <span>{{$tours->tour_locationStart}}</span>
                     </div>
@@ -63,6 +71,10 @@
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Mô tả</h4>
                         <span>{{$tours->tour_description}}</span>
+                    </div>
+                    <div class="info_group mt-2" style="margin-left: 15px">
+                        <h4>Hành trình</h4>
+                        <span>{{$tours->tour_trip}}</span>
                     </div>
                 </div>
             </div>
