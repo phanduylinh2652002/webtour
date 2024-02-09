@@ -1,0 +1,26 @@
+# Sử dụng image chứa PHP 7.3
+FROM php:7.3
+
+# Cài đặt các extensions và các gói bổ sung cần thiết
+RUN apt-get update && apt-get install -y git zip unzip
+RUN docker-php-ext-install pdo_mysql mbstring
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Thiết lập thư mục làm việc
+WORKDIR /var/www/html
+
+# Sao chép các file mã nguồn của Laravel vào container
+COPY . .
+COPY .env-docker .env
+
+# Cài đặt các dependency bằng Composer
+RUN composer install
+
+# Đặt quyền cho storage và bootstrap cache của Laravel
+RUN chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
+# Mở cổng 8000 để truy cập ứng dụng (có thể sửa đổi tùy ý)
+EXPOSE 8000
+
+# Lệnh để chạy ứng dụng Laravel khi container được khởi chạy
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
