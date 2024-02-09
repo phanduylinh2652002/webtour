@@ -32,9 +32,11 @@ class TourGuideController extends Controller
     public function edit(TourGuide $tourguide) {
         return view('admin.tourguide.edit', compact('tourguide'));
     }
-    public function update(TourGuide $tourGuide, TourGuideRequest $request){
-        $tourGuide->update($request->all());
-        return redirect()->route('tourguide.index', compact('tourGuide'));
+    public function update($id, TourGuideRequest $request){
+        $tourguide = TourGuide::findOrFail($id);
+        $tourguide->fill($request->all());
+        $tourguide->save();
+        return redirect()->route('tourguide.index');
     }
     public function destroy(TourGuide $tourguide) {
         $tourguide->delete();
