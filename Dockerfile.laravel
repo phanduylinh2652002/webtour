@@ -10,7 +10,7 @@ WORKDIR /var/www/html
 
 # Sao chép các file mã nguồn của Laravel vào container
 COPY . .
-COPY .env-docker .env
+COPY env-docker .env
 
 # Cài đặt các dependency bằng Composer
 RUN composer install
