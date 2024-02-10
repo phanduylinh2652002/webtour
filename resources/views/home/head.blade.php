@@ -4,7 +4,7 @@
 	<link rel="shortcut icon" href="favicon.png">
 	<meta name="description" content="" />
 	<meta name="keywords" content="bootstrap, bootstrap4" />
-
+	<link rel="icon" type="image/png" href="{{asset('admin/assets/img/plane-removebg.png')}}">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap"
 		rel="stylesheet">
