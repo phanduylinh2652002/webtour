@@ -23,13 +23,25 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/private', function(){
     return '<h1>Chính sách riêng tư</h1>';
 });
-
+//Facebook
 Route::get('/loginFacebook', function (){
     return Socialite::driver('facebook')->redirect();
 });
 
 Route::get('/loginFacebook/callback', function (){
-    return '<h1>Callback Facebook</h1>';
+    $user = Socialite::driver('facebook')->user();
+    echo $user->getEmail().'<br>';
+    echo $user->getName().'<br>';
+});
+//google
+Route::get('/loginGoogle', function (){
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/loginGoogle/callback', function (){
+    $user = Socialite::driver('google')->user();
+    echo $user->getEmail().'<br>';
+    echo $user->getName().'<br>';
 });
 //admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
