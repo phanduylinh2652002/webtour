@@ -20,6 +20,17 @@ Route::get('/register', 'Auth\RegisterController@index');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout');
 
+Route::get('/private', function(){
+    return '<h1>Chính sách riêng tư</h1>';
+});
+
+Route::get('/loginFacebook', function (){
+    return Socialite::driver('facebook')->redirect();
+});
+
+Route::get('/loginFacebook/callback', function (){
+    return '<h1>Callback Facebook</h1>';
+});
 //admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
